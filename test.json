@@ -1,0 +1,28 @@
+{
+    "type": "FeatureCollection",
+    "features": [{
+        "type": "Feature",
+        "geometry": {
+            "title": "Mount Viso",
+            "type": "Point",
+            "coordinates": [7.090301513671875, 44.66743203082226]
+        },
+        "properties": {
+            "name": "Mount Viso",
+            "description": "the highest mountain of the Cottian Alps",
+            "link": "https://en.wikipedia.org/wiki/Monte_Viso"
+        }
+    }, {
+        "type": "Feature",
+        "geometry": {
+            "title": "Gran Paradiso",
+            "type": "Point",
+            "coordinates": [7.266082763671875, 45.51837616409498]
+        },
+        "properties": {
+            "name": "Gran Paradiso",
+            "description": "a mountain in the Graian Alps in Italy",
+            "link": "https://en.wikipedia.org/wiki/Gran_Paradiso"
+        }
+    }]
+}

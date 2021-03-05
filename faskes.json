@@ -1,0 +1,61 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Puskesmas Pembantu",
+                "description": "<p><strong>Puskesmas Pembantu</strong></p><hr> <img class=\"mx-auto d-block\" width=\"200px\" src=\"/image/puskesmas-pembantu.png\" alt=\"pecatu\"> <p class=\"mt-1 mb-0\">Memiliki 1 Unit Ambulance</p><p class=\"m-0\">Pelayanan Imunisasi Balita</p><p class=\"m-0\">Pemeriksaan ibu hamil setiap hari jumat</p> <p class=\"m-0\">Setiap hari jumat jadwal kunjungan dokter umum</p> <p class=\"m-0\">Senin minggu pertama dan Senin minggu ketiga jadwal imunisasi lengkap</p> <p class=\"mt-0\">Setiap hari jumat jadwal pemeriksaan lab darah ibu hamil (PPIA)</p> <a target=\"_blank\" href=\"https://goo.gl/maps/wtJNtSigdJ2uQsUV8\" class=\"btn btn-primary btn-sm btn-block\">Buka di maps</a>"
+            },
+            "geometry": {
+                "title": "Puskesmas Pembantu",
+                "type": "Point",
+                "coordinates": [ 115.124547, -8.833448]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "OMSA MEDIC",
+                "description": "<p><strong>OMSA MEDIC PECATU</strong></p><hr> <img class=\"mx-auto d-block\" width=\"200px\" src=\"/image/omsa-medic.jpg\" alt=\"pecatu\"> <p class=\"mt-1 mb-0\">Praktek Dokter Umum</p><p class=\"m-0\">Rapid Test dan SWAB Test Covid-19</p><p class=\"mt-0\">Melayani BPJS</p> <a target=\"_blank\" href=\"https://goo.gl/maps/xq6J7mT1GVunweJh7\" class=\"btn btn-primary btn-sm btn-block\">Buka di maps</a>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [115.142456, -8.823567]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Apotek 1001",
+                "description": "<p><strong>Apotek 1001</strong></p><hr> <img class=\"mx-auto d-block\" width=\"200px\" src=\"/image/1001-apotek.jpg\" alt=\"pecatu\"> <p class=\"mt-1 mb-0\">Gratis konsultasi dan cek tekanan darah</p><p class=\"mt-0\">Tersedia tes gula darah, asam urat, kolesterol dan kesuburan kehamilan</p> <a target=\"_blank\" href=\"https://goo.gl/maps/fqiPquTnwimMd9Yw8\" class=\"btn btn-primary btn-sm btn-block\">Buka di maps</a>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [115.133110, -8.830535]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Green Code",
+                "description": "<p><strong>Green Code Medical Assistance</strong></p><hr> <img class=\"mx-auto d-block\" width=\"200px\" src=\"/image/green-code.jpg\" alt=\"pecatu\"> <p class=\"mt-1 mb-0\">Praktek dokter umum</p><p class=\"mt-0\">Melayani BPJS</p> <a target=\"_blank\" href=\"https://goo.gl/maps/HHMQBfrraeAQvc5E9\" class=\"btn btn-primary btn-sm btn-block\">Buka di maps</a>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [115.133057, -8.830812]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "RS UNUD",
+                "description": "<p><strong>RS UNUD</strong></p><hr> <img class=\"mx-auto d-block\" width=\"200px\" src=\"/image/rs-unud.jpg\" alt=\"pecatu\"> <p>Pusat Penanganan COVID-19 di Bali</p> <a target=\"_blank\" href=\"https://g.page/rsunud?share\" class=\"btn btn-primary btn-sm btn-block\">Buka di maps</a>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [115.174422, -8.789329]
+            }
+        }
+    ]
+}
