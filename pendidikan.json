@@ -1,0 +1,77 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "SD 1 Pecatu",
+                "description": "<p><strong>SD 1 Pecatu</strong></p><hr> <img class=\"mx-auto d-block\" width=\"200px\" src=\"/image/puskesmas-pembantu.png\" alt=\"pecatu\"> <a target=\"_blank\" href=\"https://goo.gl/maps/wtJNtSigdJ2uQsUV8\" class=\"btn btn-primary btn-sm btn-block\">Buka di maps</a>"
+            },
+            "geometry": {
+                "title": "SD 1 Pecatu",
+                "type": "Point",
+                "coordinates": [115.127052, -8.834617]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "SD 2 Pecatu",
+                "description": "<p><strong>SD 2 Pecatu</strong></p><hr> <img class=\"mx-auto d-block\" width=\"200px\" src=\"/image/puskesmas-pembantu.png\" alt=\"pecatu\"> <a target=\"_blank\" href=\"https://goo.gl/maps/wtJNtSigdJ2uQsUV8\" class=\"btn btn-primary btn-sm btn-block\">Buka di maps</a>"
+            },
+            "geometry": {
+                "title": "SD 2 Pecatu",
+                "type": "Point",
+                "coordinates": [115.113595, -8.816884]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "SD 3 Pecatu",
+                "description": "<p><strong>SD 3 Pecatu</strong></p><hr> <img class=\"mx-auto d-block\" width=\"200px\" src=\"/image/puskesmas-pembantu.png\" alt=\"pecatu\"> <a target=\"_blank\" href=\"https://goo.gl/maps/wtJNtSigdJ2uQsUV8\" class=\"btn btn-primary btn-sm btn-block\">Buka di maps</a>"
+            },
+            "geometry": {
+                "title": "SD 3 Pecatu",
+                "type": "Point",
+                "coordinates": [115.094677, -8.832978]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "SD 4 Pecatu",
+                "description": "<p><strong>SD 4 Pecatu</strong></p><hr> <img class=\"mx-auto d-block\" width=\"200px\" src=\"/image/puskesmas-pembantu.png\" alt=\"pecatu\"> <a target=\"_blank\" href=\"https://goo.gl/maps/wtJNtSigdJ2uQsUV8\" class=\"btn btn-primary btn-sm btn-block\">Buka di maps</a>"
+            },
+            "geometry": {
+                "title": "SD 4 Pecatu",
+                "type": "Point",
+                "coordinates": [115.126691, -8.834204]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "SD 5 Pecatu",
+                "description": "<p><strong>SD 5 Pecatu</strong></p><hr> <img class=\"mx-auto d-block\" width=\"200px\" src=\"/image/puskesmas-pembantu.png\" alt=\"pecatu\"> <a target=\"_blank\" href=\"https://goo.gl/maps/wtJNtSigdJ2uQsUV8\" class=\"btn btn-primary btn-sm btn-block\">Buka di maps</a>"
+            },
+            "geometry": {
+                "title": "SD 5 Pecatu",
+                "type": "Point",
+                "coordinates": [115.130447, -8.828543]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "SD 6 Pecatu",
+                "description": "<p><strong>SD 6 Pecatu</strong></p><hr> <img class=\"mx-auto d-block\" width=\"200px\" src=\"/image/puskesmas-pembantu.png\" alt=\"pecatu\"> <a target=\"_blank\" href=\"https://goo.gl/maps/wtJNtSigdJ2uQsUV8\" class=\"btn btn-primary btn-sm btn-block\">Buka di maps</a>"
+            },
+            "geometry": {
+                "title": "SD 6 Pecatu",
+                "type": "Point",
+                "coordinates": [115.110582, -8.835587]
+            }
+        }
+    ]
+}

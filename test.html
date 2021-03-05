@@ -2,109 +2,163 @@
 <html>
 
 <head>
-    <title>Styled Map Types</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <style type="text/css">
-        /* Always set the map height explicitly to define the size of the div
+  <title>Desa Pecatu</title>
+  <link rel="shortcut icon" href="medical-icon-32.png" type="image/x-icon">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <style type="text/css">
+    /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-        #map {
-            height: 100%;
+    #map {
+      height: 100%;
+    }
+
+    /* Optional: Makes the sample page fill the window. */
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <script>
+    function initMap() {
+      let infowindow = new google.maps.InfoWindow();
+      let faskes = new google.maps.Data();
+      let pendidikan = new google.maps.Data();
+      let umum = new google.maps.Data();
+      faskes.loadGeoJson('faskes.json');
+      pendidikan.loadGeoJson('pendidikan.json');
+      umum.loadGeoJson('umum.json');
+      const mapDataArray = {faskes, pendidikan, umum};
+      
+      // Create a new StyledMapType object, passing it an array of styles,
+      // and the name to be displayed on the map type control.
+      const styledMapType = new google.maps.StyledMapType(
+        [
+          {
+            "featureType": "poi",
+            "stylers": [{
+              "visibility": "off"
+            }]
+          },
+        ], {
+          name: "Peta Pecatu"
         }
+      );
+      const center = {
+        lat: -8.8156033,
+        lng: 115.155943
+      };
+      // Create a map object, and include the MapTypeId to add
+      // to the map type control.
+      const map = new google.maps.Map(document.getElementById("map"), {
+        center: center,
+        zoom: 14,
+        mapTypeControlOptions: {
+          mapTypeIds: [
+            "peta_pecatu",
+          ],
+        },
+      });
+      //Associate the styled map with the MapTypeId and set it to display.
+      map.mapTypes.set("peta_pecatu", styledMapType);
+      map.setMapTypeId("peta_pecatu");
 
-        /* Optional: Makes the sample page fill the window. */
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <script>
-        function initMap() {
-            let infowindow = new google.maps.InfoWindow();
-            // Create a new StyledMapType object, passing it an array of styles,
-            // and the name to be displayed on the map type control.
-            const styledMapType = new google.maps.StyledMapType(
-                [{
-                        "featureType": "administrative",
-                        "elementType": "geometry",
-                        "stylers": [{
-                            "visibility": "off"
-                        }]
-                    },
-                    {
-                        "featureType": "poi",
-                        "stylers": [{
-                            "visibility": "off"
-                        }]
-                    },
-                    {
-                        "featureType": "road",
-                        "elementType": "labels.icon",
-                        "stylers": [{
-                            "visibility": "off"
-                        }]
-                    },
-                    {
-                        "featureType": "transit",
-                        "stylers": [{
-                            "visibility": "off"
-                        }]
-                    }
-                ], {
-                    name: "Peta Pecatu"
-                }
-            );
-            const uluru = {
-                lat: -8.833511,
-                lng: 115.124482
-            };
-            // Create a map object, and include the MapTypeId to add
-            // to the map type control.
-            const map = new google.maps.Map(document.getElementById("map"), {
-                center: uluru,
-                zoom: 11,
-                mapTypeControlOptions: {
-                    mapTypeIds: [
-                        "peta_pecatu",
-                    ],
-                },
-            });
-            //Associate the styled map with the MapTypeId and set it to display.
-            map.mapTypes.set("peta_pecatu", styledMapType);
-            map.setMapTypeId("peta_pecatu");
+      // begin::wilayah
+      map.data.loadGeoJson('banjar_dinas.json');
 
-            $.getJSON('faskes.json', function(geojson) {
-                map.data.addGeoJson(geojson);
-            });
+      map.data.setStyle({
+        fillColor: 'green',
+        strokeColor: 'green',
+        strokeWeight: 1
+      });
 
-            map.data.addListener('click', function (event) {
-                var feat = event.feature;
-                var html = feat.getProperty('description');
-                infowindow.setContent(html);
-                infowindow.setPosition(event.latLng);
-                infowindow.setOptions({
-                    pixelOffset: new google.maps.Size(0, -34)
-                });
-                infowindow.open(map);
-            });
+      map.data.addListener('click', function (event) {
+        var feat = event.feature;
+        var html = feat.getProperty('description');
+        infowindow.setContent(html);
+        infowindow.setPosition(event.latLng);
+        infowindow.setOptions({
+          pixelOffset: new google.maps.Size(0, -34)
+        });
+        infowindow.open(map);
+      });
+      // end::wilayah
 
-        }
-    </script>
+      const faskesControlDiv = document.createElement('div');
+      const pendidikanControlDiv = document.createElement('div');
+      const umumControlDiv = document.createElement('div');
+      CategoryControl(faskesControlDiv, map, faskes, infowindow, "Faskes", mapDataArray);
+      CategoryControl(pendidikanControlDiv, map, pendidikan, infowindow, 'Pendidikan', mapDataArray);
+      CategoryControl(umumControlDiv, map, umum, infowindow, 'Umum', mapDataArray);
+      map.controls[google.maps.ControlPosition.TOP_CENTER].push(faskesControlDiv);
+      map.controls[google.maps.ControlPosition.TOP_CENTER].push(pendidikanControlDiv);
+      map.controls[google.maps.ControlPosition.TOP_CENTER].push(umumControlDiv);
+    }
+
+    function hideAllMap(mapData)
+    {
+      mapData.faskes.setMap(null);
+      mapData.pendidikan.setMap(null);
+      mapData.umum.setMap(null);
+    }
+
+    function CategoryControl(controlDiv, map, mapData, infowindow, title, mapDataArray) {
+      // Set CSS for the control border.
+      const controlUI = document.createElement("div");
+      controlUI.style.backgroundColor = "#fff";
+      controlUI.style.border = "2px solid #fff";
+      controlUI.style.borderRadius = "3px";
+      controlUI.style.boxShadow = "0 2px 6px rgba(0,0,0,.3)";
+      controlUI.style.cursor = "pointer";
+      controlUI.style.marginBottom = "22px";
+      controlUI.style.marginRight = "5px";
+      controlUI.style.marginTop = "10px";
+      controlUI.style.textAlign = "center";
+      controlUI.title = title;
+      controlDiv.appendChild(controlUI);
+      // Set CSS for the control interior.
+      const controlText = document.createElement("div");
+      controlText.style.color = "rgb(25,25,25)";
+      controlText.style.fontFamily = "Roboto,Arial,sans-serif";
+      controlText.style.fontSize = "16px";
+      controlText.style.lineHeight = "38px";
+      controlText.style.paddingLeft = "5px";
+      controlText.style.paddingRight = "5px";
+      controlText.innerHTML = title;
+      controlUI.appendChild(controlText);
+      // Setup the click event listeners: simply set the map to Chicago.
+      controlUI.addEventListener("click", () => {
+        hideAllMap(mapDataArray);
+        mapData.setMap(map);
+
+        mapData.addListener('click', function(event) {
+          var feat = event.feature;
+          var html = feat.getProperty('description');
+          infowindow.setContent(html);
+          infowindow.setPosition(event.latLng);
+          infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -34)
+          });
+          infowindow.open(map);
+        })
+      });
+    }
+  </script>
 </head>
 
 <body>
-    <div id="map"></div>
+  <div id="map"></div>
 
-    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDebgduT7TwefR5RAIFxxzXptI-dG9V940&callback=initMap&libraries=&v=weekly"
-        async></script>
+  <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDebgduT7TwefR5RAIFxxzXptI-dG9V940&callback=initMap&libraries=&v=weekly"
+    async></script>
 </body>
 
 </html>
