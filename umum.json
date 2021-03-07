@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "title": "Balai Banjar Karang Boma",
-                "description": "<p><strong>Balai Banjar Karang Boma</strong></p><hr> <img class=\"mx-auto d-block\" width=\"200px\" src=\"/image/puskesmas-pembantu.png\" alt=\"pecatu\"> <a target=\"_blank\" href=\"https://goo.gl/maps/wtJNtSigdJ2uQsUV8\" class=\"btn btn-primary btn-sm btn-block\">Buka di maps</a>"
+                "description": "<p><strong>Balai Banjar Karang Boma</strong></p><hr> <a target=\"_blank\" href=\"https://goo.gl/maps/AR9e9jsRmXnHJsnY9\" class=\"btn btn-primary btn-sm btn-block\">Buka di maps</a>"
             },
             "geometry": {
                 "title": "Balai Banjar Karang Boma",
@@ -17,7 +17,7 @@
             "type": "Feature",
             "properties": {
                 "title": "Balai Banjar Tengah",
-                "description": "<p><strong>Balai Banjar Tengah</strong></p><hr> <img class=\"mx-auto d-block\" width=\"200px\" src=\"/image/puskesmas-pembantu.png\" alt=\"pecatu\"> <a target=\"_blank\" href=\"https://goo.gl/maps/wtJNtSigdJ2uQsUV8\" class=\"btn btn-primary btn-sm btn-block\">Buka di maps</a>"
+                "description": "<p><strong>Balai Banjar Tengah</strong></p><hr> <a target=\"_blank\" href=\"https://goo.gl/maps/8SUqyDmBsEJteF9N9\" class=\"btn btn-primary btn-sm btn-block\">Buka di maps</a>"
             },
             "geometry": {
                 "title": "Balai Banjar Tengah",
@@ -29,7 +29,7 @@
             "type": "Feature",
             "properties": {
                 "title": "Balai Banjar Kangin",
-                "description": "<p><strong>Balai Banjar Kangin</strong></p><hr> <img class=\"mx-auto d-block\" width=\"200px\" src=\"/image/puskesmas-pembantu.png\" alt=\"pecatu\"> <a target=\"_blank\" href=\"https://goo.gl/maps/wtJNtSigdJ2uQsUV8\" class=\"btn btn-primary btn-sm btn-block\">Buka di maps</a>"
+                "description": "<p><strong>Balai Banjar Kangin</strong></p><hr> <a target=\"_blank\" href=\"https://goo.gl/maps/gGAjHvCLQpgHvGp67\" class=\"btn btn-primary btn-sm btn-block\">Buka di maps</a>"
             },
             "geometry": {
                 "title": "Balai Banjar Kangin",

@@ -27,13 +27,15 @@
     integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <script>
     function initMap() {
-      let infowindow = new google.maps.InfoWindow();
-      let faskes = new google.maps.Data();
-      let pendidikan = new google.maps.Data();
-      let umum = new google.maps.Data();
+      let infowindow    = new google.maps.InfoWindow();
+      let faskes        = new google.maps.Data();
+      let pendidikan    = new google.maps.Data();
+      let umum          = new google.maps.Data();
+
       faskes.loadGeoJson('faskes.json');
       pendidikan.loadGeoJson('pendidikan.json');
       umum.loadGeoJson('umum.json');
+
       const mapDataArray = {faskes, pendidikan, umum};
       
       // Create a new StyledMapType object, passing it an array of styles,
@@ -90,9 +92,10 @@
       });
       // end::wilayah
 
-      const faskesControlDiv = document.createElement('div');
-      const pendidikanControlDiv = document.createElement('div');
-      const umumControlDiv = document.createElement('div');
+      const faskesControlDiv        = document.createElement('div');
+      const pendidikanControlDiv    = document.createElement('div');
+      const umumControlDiv          = document.createElement('div');
+
       CategoryControl(faskesControlDiv, map, faskes, infowindow, "Faskes", mapDataArray);
       CategoryControl(pendidikanControlDiv, map, pendidikan, infowindow, 'Pendidikan', mapDataArray);
       CategoryControl(umumControlDiv, map, umum, infowindow, 'Umum', mapDataArray);
@@ -110,27 +113,27 @@
 
     function CategoryControl(controlDiv, map, mapData, infowindow, title, mapDataArray) {
       // Set CSS for the control border.
-      const controlUI = document.createElement("div");
-      controlUI.style.backgroundColor = "#fff";
-      controlUI.style.border = "2px solid #fff";
-      controlUI.style.borderRadius = "3px";
-      controlUI.style.boxShadow = "0 2px 6px rgba(0,0,0,.3)";
-      controlUI.style.cursor = "pointer";
-      controlUI.style.marginBottom = "22px";
-      controlUI.style.marginRight = "5px";
-      controlUI.style.marginTop = "10px";
-      controlUI.style.textAlign = "center";
-      controlUI.title = title;
+      const controlUI                   = document.createElement("div");
+      controlUI.style.backgroundColor   = "#fff";
+      controlUI.style.border            = "2px solid #fff";
+      controlUI.style.borderRadius      = "3px";
+      controlUI.style.boxShadow         = "0 2px 6px rgba(0,0,0,.3)";
+      controlUI.style.cursor            = "pointer";
+      controlUI.style.marginBottom      = "22px";
+      controlUI.style.marginRight       = "5px";
+      controlUI.style.marginTop         = "10px";
+      controlUI.style.textAlign         = "center";
+      controlUI.title                   = title;
       controlDiv.appendChild(controlUI);
       // Set CSS for the control interior.
-      const controlText = document.createElement("div");
-      controlText.style.color = "rgb(25,25,25)";
-      controlText.style.fontFamily = "Roboto,Arial,sans-serif";
-      controlText.style.fontSize = "16px";
-      controlText.style.lineHeight = "38px";
-      controlText.style.paddingLeft = "5px";
-      controlText.style.paddingRight = "5px";
-      controlText.innerHTML = title;
+      const controlText                 = document.createElement("div");
+      controlText.style.color           = "rgb(25,25,25)";
+      controlText.style.fontFamily      = "Roboto,Arial,sans-serif";
+      controlText.style.fontSize        = "16px";
+      controlText.style.lineHeight      = "38px";
+      controlText.style.paddingLeft     = "5px";
+      controlText.style.paddingRight    = "5px";
+      controlText.innerHTML             = title;
       controlUI.appendChild(controlText);
       // Setup the click event listeners: simply set the map to Chicago.
       controlUI.addEventListener("click", () => {
