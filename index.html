@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Faskes Desa Pecatu</title>
+  <title>Desa Pecatu</title>
   <link rel="shortcut icon" href="medical-icon-32.png" type="image/x-icon">
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
   <style type="text/css">
@@ -27,7 +27,17 @@
     integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <script>
     function initMap() {
-      let infowindow = new google.maps.InfoWindow();
+      let infowindow    = new google.maps.InfoWindow();
+      let faskes        = new google.maps.Data();
+      let pendidikan    = new google.maps.Data();
+      let umum          = new google.maps.Data();
+
+      faskes.loadGeoJson('faskes.json');
+      pendidikan.loadGeoJson('pendidikan.json');
+      umum.loadGeoJson('umum.json');
+
+      const mapDataArray = {faskes, pendidikan, umum};
+      
       // Create a new StyledMapType object, passing it an array of styles,
       // and the name to be displayed on the map type control.
       const styledMapType = new google.maps.StyledMapType(
@@ -61,8 +71,8 @@
       map.mapTypes.set("peta_pecatu", styledMapType);
       map.setMapTypeId("peta_pecatu");
 
+      // begin::wilayah
       map.data.loadGeoJson('banjar_dinas.json');
-      map.data.loadGeoJson('faskes.json');
 
       map.data.setStyle({
         fillColor: 'green',
@@ -80,7 +90,67 @@
         });
         infowindow.open(map);
       });
+      // end::wilayah
 
+      const faskesControlDiv        = document.createElement('div');
+      const pendidikanControlDiv    = document.createElement('div');
+      const umumControlDiv          = document.createElement('div');
+
+      CategoryControl(faskesControlDiv, map, faskes, infowindow, "Faskes", mapDataArray);
+      CategoryControl(pendidikanControlDiv, map, pendidikan, infowindow, 'Pendidikan', mapDataArray);
+      CategoryControl(umumControlDiv, map, umum, infowindow, 'Umum', mapDataArray);
+      map.controls[google.maps.ControlPosition.TOP_CENTER].push(faskesControlDiv);
+      map.controls[google.maps.ControlPosition.TOP_CENTER].push(pendidikanControlDiv);
+      map.controls[google.maps.ControlPosition.TOP_CENTER].push(umumControlDiv);
+    }
+
+    function hideAllMap(mapData)
+    {
+      mapData.faskes.setMap(null);
+      mapData.pendidikan.setMap(null);
+      mapData.umum.setMap(null);
+    }
+
+    function CategoryControl(controlDiv, map, mapData, infowindow, title, mapDataArray) {
+      // Set CSS for the control border.
+      const controlUI                   = document.createElement("div");
+      controlUI.style.backgroundColor   = "#fff";
+      controlUI.style.border            = "2px solid #fff";
+      controlUI.style.borderRadius      = "3px";
+      controlUI.style.boxShadow         = "0 2px 6px rgba(0,0,0,.3)";
+      controlUI.style.cursor            = "pointer";
+      controlUI.style.marginBottom      = "22px";
+      controlUI.style.marginRight       = "5px";
+      controlUI.style.marginTop         = "10px";
+      controlUI.style.textAlign         = "center";
+      controlUI.title                   = title;
+      controlDiv.appendChild(controlUI);
+      // Set CSS for the control interior.
+      const controlText                 = document.createElement("div");
+      controlText.style.color           = "rgb(25,25,25)";
+      controlText.style.fontFamily      = "Roboto,Arial,sans-serif";
+      controlText.style.fontSize        = "16px";
+      controlText.style.lineHeight      = "38px";
+      controlText.style.paddingLeft     = "5px";
+      controlText.style.paddingRight    = "5px";
+      controlText.innerHTML             = title;
+      controlUI.appendChild(controlText);
+      // Setup the click event listeners: simply set the map to Chicago.
+      controlUI.addEventListener("click", () => {
+        hideAllMap(mapDataArray);
+        mapData.setMap(map);
+
+        mapData.addListener('click', function(event) {
+          var feat = event.feature;
+          var html = feat.getProperty('description');
+          infowindow.setContent(html);
+          infowindow.setPosition(event.latLng);
+          infowindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -34)
+          });
+          infowindow.open(map);
+        })
+      });
     }
   </script>
 </head>
